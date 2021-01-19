@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Clicliclick</title>
+		<script src="music.js"></script>
+		<script src="Cursor.js"></script>
+		<script src="jquery.js"></script>
+		<link href="style.css" rel="stylesheet">
+	</head>
+	<body>
+		<img src="bg.gif" class="bg edit">
+		<div contenteditable="true" class="lvedit" autocorrect="off" spellcheck="false" style="overflow-y: scroll"></div>
+		<input class="bg-url" placeholder="Background image URL" type="url">
+		<input class="ms-url" placeholder="Music URL" type="url">
+		<input type="file" style="position: fixed; top: 100vh" onchange="prc()" accept=".ccc" id="file">
+		<button onclick="hlta()" class="upd">Refresh text style</button>
+		<button onclick="down()" class="save">Save</button>
+		<button onclick="load()" class="load">Load</button>
+		<button onclick="self.close()" class="back">Exit editor</button>
+		<input class="ms-name" placeholder="Music name (also level name)">
+		<input class="ms-artist" placeholder="Music artist">
+		<input class="lv-artist" placeholder="Level creator">
+		<textarea id="description" placeholder="Description"></textarea>
+		<script>
+			//thx Danielo515
+			function download(filename, text){
+				var link = document.createElement("a");
+				link.setAttribute("target","_blank");
+				if(Blob !== undefined){
+					var blob = new Blob([text], {type: "text/plain"});
+					link.setAttribute("href", URL.createObjectURL(blob));
+				} else{
+					link.setAttribute("href","data:text/plain," + encodeURIComponent(text));
+				}
+				link.setAttribute("download",filename);
+				document.body.appendChild(link);
+				link.click();
+				document.body.removeChild(link);
+			}
+			function down(){
+				download("level.ccc", JSON.stringify({
+					"level": document.getElementsByTagName("div")[0].innerText.slice(0, document.getElementsByTagName("div")[0].innerText.length), 
+					"background": document.getElementsByTagName("input")[0].value, 
+					"music": document.getElementsByTagName("input")[1].value, 
+					"info": {
+						"name": document.getElementsByTagName("input")[3].value,
+						"artist": document.getElementsByTagName("input")[4].value,
+						"creator": document.getElementsByTagName("input")[5].value,
+						"description": document.getElementsByTagName("textarea")[0].value
+					}
+				}));
+			}
+			function load(){
+				document.getElementsByTagName("input")[2].click();
+			}
+			function prc(){
+				var file = document.getElementsByTagName("input")[2].files[0];
+				var reader = new FileReader();
+				reader.readAsText(file);
+				reader.onload = function() {
+					var obj = JSON.parse(reader.result);
+					document.getElementsByTagName("div")[0].innerText = obj.level;
+					hlta();
+					document.getElementsByTagName("input")[0].value = obj.background;
+					document.getElementsByTagName("input")[1].value = obj.music;
+					document.getElementsByTagName("input")[3].value = obj.info.name;
+					document.getElementsByTagName("input")[4].value = obj.info.artist;
+					document.getElementsByTagName("input")[5].value = obj.info.creator;
+					document.getElementsByTagName("textarea")[0].value = obj.info.description;
+				};
+				reader.onerror = function() {
+					console.error(reader.error);
+				};
+				$("#file").wrap('<form>').closest('form').get(0).reset();
+				$("#file").unwrap();
+			}
+			function hlta(event){
+				var startPos = Cursor.getCurrentCursorPosition(document.getElementsByTagName("div")[0]);
+				document.getElementsByTagName("div")[0].innerHTML = document.getElementsByTagName("div")[0].innerText.replace(/red/gi, '<span style="color: red;">red</span>').replace(/lime/gi, '<span style="color: lime;">lime</span>').replace(/cyan/gi, '<span style="color: cyan;">cyan</span>').replace(/yellow/gi, '<span style="color: yellow;">yellow</span>').replace(/orange/gi, '<span style="color: orange;">orange</span>').replace(/text/gi, '<i>text</i>').replace(new RegExp("[0-9]", "g"), '<span style="color: pink;">$&</span>').replace(/delay/gi, '<b style="color: magenta;">$&</b>');
+				Cursor.setCurrentCursorPosition(startPos, document.getElementsByTagName("div")[0]);
+			}
+			$("body").keydown(function(e){
+				if(e.ctrlKey && (e.which == 79 || e.which == 83 || e.which == 82)) e.preventDefault();
+				if(e.ctrlKey && e.which == 79) load();
+				if(e.ctrlKey && e.which == 83) down();
+				if(e.ctrlKey && e.which == 82) hlta();
+			});
+		</script>
+	</body>
+</html>

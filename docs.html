@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Clicliclick guide</title>
+		<link rel="stylesheet" href="style.css">
+		<style>
+			th {
+				max-width: 250px;
+				max-height: 200px;
+			}
+		</style>
+	</head>
+	<body style="font-family: QuickSand">
+		<img src="ui/exit_red.png" style="position: fixed; top: 20px; left: 20px; width: 50px; height: 50px; cursor: pointer" onclick="self.close()" alt="Exit">
+		<center>
+			<h1 style="font-size: 250%">Guide:<br>How to play and create levels in</h1><br>
+			<img src="logo.png"><br>
+			<h3>To skip, just click one of these:<br><a href="#play">How to play</a>  <a href="#create">How to create your own levels</a></h3><br>
+			<b style="font-size: 1000%"> </b><br>
+			<h1 id="play">How to play</h1>
+			<h2>Basic menu buttons</h2>
+			<table border="1">
+				<tr>
+					<th><img src="docs_images/play.png"></th>
+					<th><p>Opens list of the levels.</p></th>
+				</tr>
+				<tr>
+					<th><img src="docs_images/open.png"></th>
+					<th><p>Adds a file to "PLAY" menu.</p></th>
+				</tr>
+				<tr>
+					<th><img src="docs_images/edit.png"></th>
+					<th><p>Opens the <a href="#create">editor</a>.</p></th>
+				</tr>
+				<tr>
+					<th><img src="docs_images/erase.png"></th>
+					<th><p>Resets the "PLAY" menu.</p></th>
+				</tr>
+				<tr>
+					<th><img src="docs_images/skins.png"></th>
+					<th><p>Changes your crosshair.</p></th>
+				</tr>
+			</table>
+			<p>When you open "PLAY" menu, you can see the list of the levels. There are some levels by default and you can add yours.</p>
+			<p>It looks like this:</p>
+			<img src="docs_images/list.png">
+			<p>If you <b>left-click</b> a level you will play this. If you <b>right-click</b> a level you can read its description.</p>
+			<p>When you play a level, different kinds of cards will appear on the screen. The faster you react, the more you gain points. Also you gain 1 point every second.</p>
+			<table border="1">
+				<tr>
+					<th><div style="background-color: cyan; width: 100px; height: 100px;"></div></th>
+					<th><b>Left</b>-click it.</th>
+				</tr>
+				<tr>
+					<th><div style="background-color: orange; width: 100px; height: 100px;"></div></th>
+					<th><b>Right</b>-click it.</th>
+				</tr>
+				<tr>
+					<th><div style="background-color: yellow; width: 100px; height: 100px;"></div></th>
+					<th><b>Middle</b>-click it.</th>
+				</tr>
+				<tr>
+					<th><div style="background-color: red; width: 100px; height: 100px;"></div></th>
+					<th><b>Double</b>-click it.</th>
+				</tr>
+				<tr>
+					<th><div style="background-color: lime; width: 100px; height: 100px;"></div></th>
+					<th><b>Scroll</b> it.</th>
+				</tr>
+			</table>
+			<p>There are rankings. The better you play, the higher you get rank.</p>
+			<table border="1">
+				<tr>
+					<th>Skipped none of the squares and got the max score.</th>
+					<th>S+</th>
+				</tr>
+				<tr>
+					<th>Skipped none of the squares.</th>
+					<th>S</th>
+				</tr>
+				<tr>
+					<th>Skipped 1 square.</th>
+					<th>A</th>
+				</tr>
+				<tr>
+					<th>Skipped 2 squares.</th>
+					<th>B</th>
+				</tr>
+				<tr>
+					<th>Skipped 3 squares.</th>
+					<th>C</th>
+				</tr>
+				<tr>
+					<th>Skipped 4 squares.</th>
+					<th>D</th>
+				</tr>
+				<tr>
+					<th>Skipped 5 squares.</th>
+					<th>E</th>
+				</tr>
+				<tr>
+					<th>Skipped 6 squares.</th>
+					<th>F</th>
+				</tr>
+			</table>
+			<p>Aaaand that's all!</p>
+			<h1 id="create">How to create levels?</h1>
+			<p>If you know programming, this will be easy for you to remember.</p>
+			<h2>Basics</h2>
+			<p>Hotkeys:</p>
+			<table border="1">
+				<tr>
+					<th>Ctrl + R</th>
+					<th>Reload text style</th>
+				</tr>
+				<tr>
+					<th>Ctrl + O</th>
+					<th>Open a file</th>
+				</tr>
+				<tr>
+					<th>Ctrl + S</th>
+					<th>Save the file</th>
+				</tr>
+			</table>
+			<p>Fields:</p>
+			<img src="docs_images/editorss.png" width="50%">
+			<p>Every line contains an instruction. Every instruction has arguments.</p>
+			<h2>Instructions "red", "orange", "yellow", "lime", "cyan"</h2>
+			<p>These have 5 arguments. But first you need to provide the color and the appear time (in ms). Example:</p>
+			<console><text style="color: red">red</text> <text style="color: pink">1000</console>
+			<p>Then you need to set the position of the top left corner of the square. You can make it using two numbers from 0 to 100. Example:</p>
+			<console><text style="color: red">red</text> <text style="color: pink">1000 25 35</text></console>
+			<p>And the last - you need to set the size with two numbers. Examples:</p>
+			<console><text style="color: red">red</text> <text style="color: pink">1000 25 35 10 15</text></console>
+			<console><text style="color: cyan">cyan</text> <text style="color: pink">2505 95 0 5 48</text></console>
+			<console><text style="color: yellow">yellow</text> <text style="color: pink">1337 69 69 13 13</text></console>
+			<h2>Instruction "text"</h2>
+			<p>It's similar to the previous instructions, but you provide the text, set the position of the center and you don't provide size. Example:</p>
+			<console><i>text</i> <text style="color: pink">1000 25 35 Text example. Cool, right?</text></console>
+		</center>
+	</body>
+	<script>
+		document.addEventListener("keydown", function(event){  if(event.which == 27) self.close();  });
+	</script>
+</html>

@@ -1,0 +1,357 @@
+@font-face {
+	  font-family: JosefinSans;
+	  src: url(josefinsans.ttf);
+}
+@font-face {
+	  font-family: QuickSand;
+	  src: url(quicksand.ttf);
+}
+:root {
+	--cur: crosshair;
+}
+console {
+	font-family: monospace;
+	border-radius: 5px;
+	background-color: #555;
+	font-size: 150%;
+	color: white;
+}
+div[quad = "yes"] {
+	transition: all .35s;
+	position: fixed;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+div[quad = "pre"] {
+	opacity: 0;
+	position: fixed;
+	border-radius: 10px;
+}
+div#yellow {
+	background-color: yellow;
+}
+div#orange {
+	background-color: orange;
+}
+div#red {
+	background-color: red;
+}
+div#cyan {
+	background-color: cyan;
+}
+div#lime {
+	background-color: lime;
+}
+body.cs * {
+	cursor: var(--cur);
+	-webkit-user-select: none;
+}
+img.bg {
+	position: fixed;
+	z-index: -9999;
+	filter: blur(10px) brightness(0.6) hue-rotate(270deg);
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	user-drag: none; 
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-drag: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+img.bg.edit {
+	filter: blur(10px) brightness(0.3) hue-rotate(30deg);
+}
+b.score {
+	position: fixed;
+	color: gray;
+	text-shadow: 2px 2px 2px #FFF;
+	font-family: sans-serif;
+	top: 10px;
+	right: 10px;
+	font-size: 300%;
+	display: none;
+}
+b.percentage {
+	position: fixed;
+	color: gray;
+	text-shadow: 2px 2px 2px #FFF;
+	font-family: sans-serif;
+	top: 10px;
+	left: 10px;
+	font-size: 300%;
+}
+div#warn {
+	background-color: rgba(127, 127, 127, 0.5);
+	border-radius: 10px;
+	width: 400px;
+	height: 200px;
+	position: absolute;
+	top: calc(50vh - 100px);
+	left: calc(50vw - 200px);
+	z-index: 101;
+}
+div#warn i {
+	color: white;
+}
+div#warn * {
+	font-size: 130%;
+}
+video {
+	position: fixed;
+	top: calc(50vh - 240px);
+	left: calc(50vw - 426px);
+	z-index: 101;
+}
+div.black {
+	background-color: black;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 100;
+}
+div.lvedit {
+	color: white;
+	background-color: rgba(200, 200, 200, 0.5);
+	font-family: monospace;
+	font-size: 150%;
+	border-radius: 5px;
+	position: absolute;
+	top: 40px;
+	left: 320px;
+	width: calc(100vw - 325px);
+	height: calc(100vh - 45px);
+	white-space: pre-wrap;
+}
+button.upd {
+	border-radius: 5px;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 300px;
+	height: 30px;
+}
+button.save {
+	border-radius: 5px;
+	position: absolute;
+	top: 5px;
+	left: 110px;
+	width: 100px;
+	height: 30px;
+}
+button.load {
+	border-radius: 5px;
+	position: absolute;
+	top: 5px;
+	left: 215px;
+	width: 100px;
+	height: 30px;
+}
+button.back {
+	border-radius: 5px;
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 100px;
+	height: 30px;
+}
+button.bgchb {
+	border-radius: 5px;
+	position: absolute;
+	top: 5px;
+	left: 320px;
+	width: calc(50vw - 215px);
+	height: 30px;
+}
+input.ms-url {
+	color: white;
+	background-color: rgba(200, 200, 200, 0.5);
+	border-radius: 5px;
+	position: absolute;
+	top: 100vh;
+	right: 310px;
+	width: calc(50vw - 430px);
+	height: 25px;
+	border: none;
+	display: none;
+}
+button.mschb {
+	border-radius: 5px;
+	position: absolute;
+	top: 5px;
+	right: 310px;
+	width: calc(50vw - 430px);
+	height: 30px;
+}
+input.ms-name {
+	color: white;
+	background-color: rgba(200, 200, 200, 0.5);
+	border-radius: 5px;
+	position: absolute;
+	top: 40px;
+	left: 5px;
+	width: 305px;
+	height: 25px;
+	border: none;
+}
+input.ms-artist {
+	color: white;
+	background-color: rgba(200, 200, 200, 0.5);
+	border-radius: 5px;
+	position: absolute;
+	top: 73px;
+	left: 5px;
+	width: 305px;
+	height: 25px;
+	border: none;
+}
+input.lv-artist {
+	color: white;
+	background-color: rgba(200, 200, 200, 0.5);
+	border-radius: 5px;
+	position: absolute;
+	top: 106px;
+	left: 5px;
+	width: 305px;
+	height: 25px;
+	border: none;
+}
+textarea#description {
+	color: white;
+	background-color: rgba(200, 200, 200, 0.5);
+	border-radius: 5px;
+	position: absolute;
+	top: 139px;
+	left: 5px;
+	width: 305px;
+	height: calc(100vh - 148px);
+	border: none;
+	resize: none;
+	white-space: pre-wrap;
+}
+::placeholder {
+  color: #DEDEDE;
+  opacity: 1;
+}
+span.text {
+	position: fixed;
+	vertical-align: middle;
+	font-family: JosefinSans;
+	transition: all .5s;
+	color: gray;
+	text-shadow: 2px 2px 2px #FFF;
+	font-size: 7vh;
+	transform: scale(0);
+}
+span.text.anim {
+	transform: scale(1);
+}
+div.menu button {
+	background-color: rgba(127, 127, 127, 0.5);
+	border: none;
+	width: 130px;
+	height: 150px;
+	padding: 0;
+	position: fixed;
+}
+div.menu button b {
+	letter-spacing: 5px;
+	text-transform: uppercase;
+	font-size: 150%;
+}
+div.menu button.play {
+	top: 40vh;
+	left: calc(50vw - 295px);
+}
+div.menu button.open {
+	top: 40vh;
+	left: calc(50vw - 145px);
+}
+div.menu button.edit {
+	top: 40vh;
+	left: calc(50vw + 5px);
+}
+div.menu button.erase {
+	top: 40vh;
+	left: calc(50vw + 155px);
+}
+div.menu button.help {
+	top: calc(40vh + 170px);
+	left: calc(50vw - 215px);
+}
+div.menu button.credits {
+	top: calc(40vh + 170px);
+	left: calc(50vw - 65px);
+}
+div.menu button.exit {
+	top: calc(40vh + 170px);
+	left: calc(50vw + 85px);
+}
+div.menu img.head {
+	position: fixed;
+	bottom: 0;
+	right: -130px;
+	border-radius: 30px 0 0 0;
+	display: none;
+}
+div.menu img.logo {
+	position: fixed;
+	top: 20vh;
+	left: calc(50vw - 250px);
+}
+div.menu div.cursel {
+	position: fixed;
+	width: 200px;
+	height: 30px;
+	border-radius: 15px;
+	background-color: rgba(127, 127, 127, 0.5);
+	color: white;
+	font-family: QuickSand;
+	font-size: 150%;
+	text-align: center;
+}
+div.menu div.cursel.active {
+	background-color: rgba(127, 127, 127, 0.75);
+}
+div.levelselect, div.levelinfo, div.credits, div.eraseconfirm {
+	position: fixed;
+	width: 600px;
+	height: 400px;
+	top: calc(50vh - 200px);
+	left: calc(50vw - 300px);
+	z-index: 150px;
+	background-color: gray;
+	border-radius: 15px;
+	overflow-y: scroll;
+}
+div.credits p a {
+	color: blue;
+	text-decoration: underline;
+}
+div.levelselect div {
+	width: 100%;
+	min-height: 75px;
+	border: none;
+	border-bottom: 3px solid white;
+}
+div.levelselect div * {
+	color: white;
+	font-family: QuickSand;
+	margin-left: 4px;
+}
+/*Custom scrollbar*/
+::-webkit-scrollbar {
+  width: 15px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px black;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: lightgray;
+  border-radius: 5px;
+}
