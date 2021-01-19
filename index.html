@@ -124,6 +124,12 @@
 				if(localStorage.getItem("globalscore") == null) localStorage.setItem("globalscore", 0);
 				if(localStorage.getItem("lvs") == null) localStorage.setItem("lvs", JSON.stringify(getOff()));
 			})();
+			if(localStorage.getItem("compl1") == 1)
+			if(localStorage.getItem("compl2") == 1)
+			if(localStorage.getItem("compl3") == 1)
+			if(localStorage.getItem("compl4") == 1)
+			if(localStorage.getItem("compl5") == 1)
+				$("img.head").css("display", "block");
 			var base_object = (obj) => JSON.parse(JSON.stringify(obj));
 			cursel(Number(localStorage.getItem("crossh")));
 			var open_docs = () => window.open("docs.html", "", "width = 1400, height = 800, top = 100, left = 100");
