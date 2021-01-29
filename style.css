@@ -8,6 +8,7 @@
 }
 :root {
 	--cur: crosshair;
+	--logos: .9;
 }
 console {
 	font-family: monospace;
@@ -302,6 +303,7 @@ div.menu img.logo {
 	position: fixed;
 	top: 20vh;
 	left: calc(50vw - 250px);
+	transform: scale(var(--logos));
 }
 div.menu div.cursel {
 	position: fixed;

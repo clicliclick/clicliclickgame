@@ -17,7 +17,7 @@
 		<center style="position: fixed; top: 200px; left: 0; width: 100vw; height: auto; font-family: QuickSand; z-index: 200; color: white; font-size: 200%; display: none" id="rank"><h1></h1></center>
 		<audio src="menu-theme.wav" loop></audio>
 		<div class="black"></div>
-		<video src="intro.mp4" style="opacity: 0" onended="$('.black').remove(); $('video').remove(); document.getElementsByTagName('audio')[0].play();"></video>
+		<video src="intro.mp4" style="opacity: 0" onended="$('.black').remove(); $('video').remove(); document.getElementsByTagName('audio')[0].play();createText(0, 50, 10, 'V. 0.1.1 (BETA)');logobounce()"></video>
 		<div id="warn" style="opacity: 1"><center>
 			<br><br>
 			<i style="font-family: QuickSand">This game may contain some flashy content!</i><br>
@@ -93,6 +93,7 @@
 		<b class="score"><i>Score: 0</i></b>
 		<b class="percentage"><i>All points: 0</i></b>
 		<script>
+			var logoaniminterval = 60000 / 110;
 			function max(...nums){
 				for(var i = 1; i < nums.length; i++)
 					if(nums[i - 1] > nums[i]) nums[i] = nums[i - 1];
@@ -134,6 +135,7 @@
 			cursel(Number(localStorage.getItem("crossh")));
 			var open_docs = () => window.open("docs.html", "", "width = 1400, height = 800, top = 100, left = 100");
 			var score = 0,
+			logoanim = 999,
 			op = true,
 			timeouts = [],
 			losed = 0,
@@ -177,6 +179,19 @@
 				$('div.eraseconfirm').css('display', 'block');
 				$('div.eraseconfirm').animate({'opacity': '1'}, 500, function(){op = false});
 			};
+			function logobounce(){
+				if(logoanim != 999) clearInterval(logoanim);
+				logoanim = setInterval(function(){
+					document.documentElement.style.setProperty("--logos", 1);
+					var eeee = 1;
+					for(var i = 1; i <= 100; i++){
+						setTimeout(function(){
+							eeee -= .001;
+							document.documentElement.style.setProperty("--logos", eeee);
+						}, i);
+					}
+				}, logoaniminterval);
+			}
 			function upd(){
 				$("div#yellow").on("mousedown", function(e){
 					if(e.which != 2) return;
@@ -255,6 +270,7 @@
 			function cursel(num){
 				var cursors = ["crosshair", "url('cursors/lime.cur'), auto", "url('cursors/yellow.cur'), auto", "url('cursors/shadow.cur'), auto"];
 				document.documentElement.style.setProperty("--cur", cursors[num]);
+				//document.getElementById("lastcursel").style.cursor = cursors[num];
 				for(var i = 0; i < 4; i++){
 					if(i == num) document.getElementsByClassName("cursel")[i].classList.add("active");
 					else document.getElementsByClassName("cursel")[i].classList.remove("active");
@@ -291,6 +307,7 @@
 						$("div.menu button b").css("display", "inline");
 						$("body > center").css("display", "none");
 						lfcmode = 0;
+						logobounce();
 					}, 3000);
 				}
 				//localStorage
@@ -374,6 +391,7 @@
 					$("div.menu button b").css("display", "inline");
 					$("body > center").css("display", "none");
 					lfcmode = 0;
+					logobounce();
 				}, 3000);
 			}
 			function sepString(str){
