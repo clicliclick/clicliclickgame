@@ -81,7 +81,7 @@
 			}
 			function hlta(event){
 				var startPos = Cursor.getCurrentCursorPosition(document.getElementsByTagName("div")[0]);
-				document.getElementsByTagName("div")[0].innerHTML = document.getElementsByTagName("div")[0].innerText.replace(/red/gi, '<span style="color: red;">red</span>').replace(/lime/gi, '<span style="color: lime;">lime</span>').replace(/cyan/gi, '<span style="color: cyan;">cyan</span>').replace(/yellow/gi, '<span style="color: yellow;">yellow</span>').replace(/orange/gi, '<span style="color: orange;">orange</span>').replace(/text/gi, '<i>text</i>').replace(new RegExp("[0-9]", "g"), '<span style="color: pink;">$&</span>').replace(/delay/gi, '<b style="color: magenta;">$&</b>');
+				document.getElementsByTagName("div")[0].innerHTML = document.getElementsByTagName("div")[0].innerText.replace(/red/gi, '<span style="color: red;">red</span>').replace(/lime/gi, '<span style="color: lime;">lime</span>').replace(/cyan/gi, '<span style="color: cyan;">cyan</span>').replace(/yellow/gi, '<span style="color: yellow;">yellow</span>').replace(/orange/gi, '<span style="color: orange;">orange</span>').replace(/text/gi, '<i>text</i>').replace(new RegExp("[0-9]", "g"), '<span style="color: lightgoldenrodyellow;">$&</span>').replace(/blurbg|shakebg|flashbg/gi, '<b style="color: magenta;">$&</b>');
 				Cursor.setCurrentCursorPosition(startPos, document.getElementsByTagName("div")[0]);
 			}
 			$("body").keydown(function(e){

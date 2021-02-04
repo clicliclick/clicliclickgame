@@ -128,16 +128,25 @@
 			<p>Every line contains an instruction. Every instruction has arguments.</p>
 			<h2>Instructions "red", "orange", "yellow", "lime", "cyan"</h2>
 			<p>These have 5 arguments. But first you need to provide the color and the appear time (in ms). Example:</p>
-			<console><text style="color: red">red</text> <text style="color: pink">1000</console>
+			<console><text style="color: red">red</text> <text style="color: lightgoldenrodyellow">1000</console>
 			<p>Then you need to set the position of the top left corner of the square. You can make it using two numbers from 0 to 100. Example:</p>
-			<console><text style="color: red">red</text> <text style="color: pink">1000 25 35</text></console>
+			<console><text style="color: red">red</text> <text style="color: lightgoldenrodyellow">1000 25 35</text></console>
 			<p>And the last - you need to set the size with two numbers. Examples:</p>
-			<console><text style="color: red">red</text> <text style="color: pink">1000 25 35 10 15</text></console>
-			<console><text style="color: cyan">cyan</text> <text style="color: pink">2505 95 0 5 48</text></console>
-			<console><text style="color: yellow">yellow</text> <text style="color: pink">1337 69 69 13 13</text></console>
+			<console><text style="color: red">red</text> <text style="color: lightgoldenrodyellow">1000 25 35 10 15</text></console>
+			<console><text style="color: cyan">cyan</text> <text style="color: lightgoldenrodyellow">2505 95 0 5 48</text></console>
+			<console><text style="color: yellow">yellow</text> <text style="color: lightgoldenrodyellow">1337 69 69 13 13</text></console>
 			<h2>Instruction "text"</h2>
 			<p>It's similar to the previous instructions, but you provide the text, set the position of the center and you don't provide size. Example:</p>
-			<console><i>text</i> <text style="color: pink">1000 25 35 Text example. Cool, right?</text></console>
+			<console><i>text</i> <text style="color: lightgoldenrodyellow">1000 25 35 Text example. Cool, right?</text></console>
+			<h2>Instruction "shakebg"</h2>
+			<p>Shakes the background. You provide the appear time, strength, repeat times and interval between repeats. Example:</p>
+			<console><text style="color: magenta"><b>shakebg</b></text><text style="color: lightgoldenrodyellow"> 3000 30 30 30</text></console>
+			<h2>Instruction "blurbg"</h2>
+			<p>Sets the blurness of the background. You provide the appear time and blur strength. Example:</p>
+			<console><text style="color: magenta"><b>blurbg</b></text><text style="color: lightgoldenrodyellow"> 3000 0</text></console>
+			<h2>Instruction "flashbg"</h2>
+			<p>Flashes the background. You provide only the appear time. Example:</p>
+			<console><text style="color: magenta"><b>shakebg</b></text><text style="color: lightgoldenrodyellow"> 3000</text></console>
 			<h2>"r"</h2>
 			<p>"r" can replace the color, a position number or a scale number.</p>
 		</center>

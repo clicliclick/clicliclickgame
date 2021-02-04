@@ -5,19 +5,22 @@
 		<title>Clicliclick</title>
 		<script src="jquery.js"></script>
 		<script src="music.js"></script>
+		<link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
 		<!--<script src="jquery-ui/jquery-ui.min.js"></script>-->
 		<link href="style.css" rel="stylesheet">
 		<link href="alertify.min.css" rel="stylesheet">
 		<script src="alertify.min.js"></script>
+		<script src="color.js"></script>
 		<!--<link href="jquery-ui/jquery-ui.min.css" rel="stylesheet">-->
 	</head>
-	<body class="cs" bgcolor="black">
+	<body class="cs" style="background-color: black">
 		<input type="file" accept=".ccc" style="position: fixed; top: 100vh" id="file" onchange="play_file()">
-		<center style="position: fixed; top: 200px; left: 0; width: 100vw; height: auto; font-family: QuickSand; z-index: 200; color: red; font-size: 200%; display: none"><h1>YOU LOSE</h1></center>
+		<center style="position: fixed; top: 200px; left: 0; width: 100vw; height: auto; font-family: QuickSand; z-index: 200; color: red; font-size: 200%; display: none" id="youlose"><h1>YOU LOSE</h1></center>
+		<center style="position: fixed; top: 200px; left: 0; width: 100vw; height: auto; font-family: QuickSand; z-index: 200; color: red; font-size: 200%; display: none" id="gaveup"><h1>YOU LOSE</h1></center>
 		<center style="position: fixed; top: 200px; left: 0; width: 100vw; height: auto; font-family: QuickSand; z-index: 200; color: white; font-size: 200%; display: none" id="rank"><h1></h1></center>
 		<audio src="menu-theme.wav" loop></audio>
 		<div class="black"></div>
-		<video src="intro.mp4" style="opacity: 0" onended="$('.black').remove(); $('video').remove(); document.getElementsByTagName('audio')[0].play();createText(0, 50, 10, 'V. 0.1.1 (BETA)');logobounce()"></video>
+		<video src="intro.mp4" style="opacity: 0" onended="$('.black').remove(); $('video').remove(); document.getElementsByTagName('audio')[0].play();createText(0, 50, 10, 'V. 0.1.4 (BETA)');logobounce()"></video>
 		<div id="warn" style="opacity: 1"><center>
 			<br><br>
 			<i style="font-family: QuickSand">This game may contain some flashy content!</i><br>
@@ -108,9 +111,9 @@
 				return max(num, -num);
 			}
 			var getOff = function(){
-				return [{"level":"text 0 50 20 Hello!\ntext 5500 50 80 You're new to this game, right?\ntext 11000 50 50 If you see a cyan square, click it with left mouse button. Ready?\ncyan 16500 40 70 20 20\ntext 22000 50 30 Nice! Now the next one.\ntext 23500 50 50 If it's orange - right click it. Ready?\norange 27500 40 70 20 20\ntext 34000 50 50 Good job!\ncyan 39500 20 20 30 60\norange 40200 50 20 30 60\ntext 45000 50 50 If it's red, double-click!\nred 48000 40 70 20 20\ntext 50500 50 50 I sure hope you remember.\ntext 56000 50 20 It's lime? Scroll it!\nlime 59000 40 40 20 20\ntext 62500 50 80 And if it's yellow, middle-click it.\nyellow 65500 40 40 20 20\nlime 68000 20 20 30 60\nyellow 68700 50 20 30 60\nred 73500 40 40 20 20\ntext 75500 200 200 hi","background":"backgrounds/tutorial.jpg","music":"songs/silentwar.mp3","info":{"name":"Silent War (TUTORIAL)","artist":"KillaJo","creator":"Milk_Cool","description":"A tutorial level.\nNothing more!"}}, //tutorial
-				{"level":"cyan 800 40 30 20 20\norange 2400 40 50 20 20\ncyan 3200 40 50 20 20\norange 4800 40 30 20 20\nlime 6000 40 40 20 20\ncyan 6400 40 30 20 20\norange 7200 40 50 20 20\ncyan 8800 40 50 20 20\norange 10400 40 30 20 20\ncyan 12000 40 30 20 20\norange 13600 40 50 20 20\ncyan 14400 40 50 20 20\norange 16000 40 30 20 20\nlime 17200 40 40 20 20\ncyan 17600 40 30 20 20\norange 18400 40 50 20 20\ncyan 20000 40 50 20 20\norange 21600 40 30 20 20\ncyan 23200 40 50 20 20\norange 24800 40 30 20 20\ncyan 25600 40 30 20 20\norange 27200 40 50 20 20\nlime 28400 40 40 20 20\ncyan 28800 40 50 20 20\norange 29600 40 30 20 20\ncyan 31200 40 30 20 20\norange 32800 40 50 20 20\ncyan 34400 40 50 20 20\norange 36000 40 30 20 20\ncyan 36800 40 30 20 20\norange 38400 40 50 20 20\nlime 39600 40 40 20 20\ncyan 40000 40 50 20 20\norange 40800 40 30 20 20\ncyan 42400 40 30 20 20\norange 44000 40 50 20 20\n","background":"backgrounds/even.jpg","music":"songs/even.wav","info":{"name":"Even","artist":"Paul Bao","creator":"Milk_Cool","description":"An easy level, made just for fun."}}, //even
-				{"level":"cyan 850 10 10 20 20\ncyan 1700 15 15 20 20\ncyan 2550 20 20 20 20\ncyan 3200 25 25 20 20\ncyan 4050 30 30 20 20\ncyan 4900 35 35 20 20\ncyan 5750 40 40 20 20\ncyan 6600 45 45 20 20\ncyan 7450 50 50 20 20\ncyan 8300 55 55 20 20\ncyan 9150 60 60 20 20\ncyan 10000 65 65 20 20\ncyan 10850 70 70 20 20\ncyan 11700 75 75 20 20\norange 14250 20 20 20 20\norange 14650 40 20 20 20\norange 15050 60 20 20 20\nyellow 15850 60 40 20 20\nyellow 16250 40 40 20 20\nyellow 16650 20 40 20 20\ncyan 17450 20 60 20 20\ncyan 17850 40 60 20 20\ncyan 18250 60 60 20 20\nlime 19050 60 40 20 20\nlime 19450 40 40 20 20\nlime 19850 20 40 20 20\nyellow 21450 20 40 20 20\nyellow 21850 40 40 20 20\nyellow 22250 60 40 20 20\norange 23050 60 20 20 20\norange 23450 40 20 20 20\norange 23850 20 20 20 20\ncyan 24650 20 40 20 20\ncyan 25050 40 40 20 20\ncyan 25450 60 40 20 20\nlime 26250 60 60 20 20\nlime 26650 40 60 20 20\nlime 27050 20 60 20 20\nred 28550 40 40 20 20\ncyan 29350 60 60 20 20\norange 29750 80 80 15 15\nred 30550 40 40 20 20\nlime 31350 20 20 20 20\nyellow 31750 5 5 15 15\nred 32550 40 40 20 20\norange 33350 60 20 20 20\nlime 33750 80 5 15 15\nred 34550 40 40 20 20\nyellow 35350 20 60 20 20\ncyan 35750 5 80 15 15\nred 36450 40 40 20 20\ncyan 37250 60 60 20 20\norange 37650 80 80 15 15\nred 38450 40 40 20 20\nlime 38850 20 20 20 20\nyellow 39250 5 5 15 15\nred 40050 40 40 20 20\norange 40450 60 20 20 20\nlime 40850 80 5 15 15\nred 41650 40 40 20 20\nyellow 42050 20 60 20 20\ncyan 42450 5 80 15 15","background":"backgrounds/deadlocked.jpg","music":"songs/deadlocked.mp3","info":{"name":"Deadlocked","artist":"F-777","creator":"Milk_Cool","description":"tururu tururu tururu\n       TURURU\ntururu tururu too\n       PARARA"}}, //deadlocked
+				return [{"level":"text 0 50 20 Hello!\ntext 5500 50 80 You're new to this game, right?\ntext 11000 50 50 If you see a cyan square, click it with left mouse button. Ready?\ncyan 16500 40 70 20 20\ntext 22000 50 30 Nice! Now the next one.\ntext 23500 50 50 If it's orange - right click it. Ready?\norange 27500 40 70 20 20\ntext 34000 50 50 Good job!\ncyan 39500 20 20 30 60\norange 40200 50 20 30 60\ntext 45000 50 50 If it's red, double-click!\nred 48000 40 70 20 20\ntext 50500 50 50 I sure hope you remember.\ntext 56000 50 20 It's lime? Scroll it!\nlime 59000 40 40 20 20\ntext 62500 50 80 And if it's yellow, middle-click it.\nyellow 65500 40 40 20 20\nlime 68000 20 20 30 60\nyellow 68700 50 20 30 60\nred 73500 40 40 20 20\ntext 75000 200 200 hi\nblurbg 75100 9\nblurbg 75200 8\nblurbg 75300 7\nblurbg 75400 6\nblurbg 75500 5\nblurbg 75600 4\nblurbg 75700 3\nblurbg 75800 2\nblurbg 75900 1\nblurbg 76000 0","background":"backgrounds/tutorial.jpg","music":"songs/silentwar.mp3","info":{"name":"Silent War (TUTORIAL)","artist":"KillaJo","creator":"Milk_Cool","description":"A tutorial level.\nNothing more!"}}, //tutorial
+				{"level":"cyan 800 40 30 20 20\norange 2400 40 50 20 20\ncyan 3200 40 50 20 20\norange 4800 40 30 20 20\nlime 6000 40 40 20 20\nflashbg 6000\ncyan 6400 40 30 20 20\norange 7200 40 50 20 20\ncyan 8800 40 50 20 20\norange 10400 40 30 20 20\ncyan 12000 40 30 20 20\norange 13600 40 50 20 20\ncyan 14400 40 50 20 20\norange 16000 40 30 20 20\nlime 17200 40 40 20 20\nflashbg 17200\ncyan 17600 40 30 20 20\norange 18400 40 50 20 20\ncyan 20000 40 50 20 20\norange 21600 40 30 20 20\ncyan 23200 40 50 20 20\norange 24800 40 30 20 20\ncyan 25600 40 30 20 20\norange 27200 40 50 20 20\nlime 28400 40 40 20 20\nflashbg 28400\ncyan 28800 40 50 20 20\norange 29600 40 30 20 20\ncyan 31200 40 30 20 20\norange 32800 40 50 20 20\ncyan 34400 40 50 20 20\norange 36000 40 30 20 20\ncyan 36800 40 30 20 20\norange 38400 40 50 20 20\nlime 39600 40 40 20 20\nflashbg 39600\ncyan 40000 40 50 20 20\norange 40800 40 30 20 20\ncyan 42400 40 30 20 20\norange 44000 40 50 20 20\n","background":"backgrounds/even.jpg","music":"songs/even.wav","info":{"name":"Even","artist":"Paul Bao","creator":"Milk_Cool","description":"An easy level, made just for fun."}}, //even
+				{"level":"cyan 850 10 10 20 20\ncyan 1700 15 15 20 20\ncyan 2550 20 20 20 20\ncyan 3200 25 25 20 20\ncyan 4050 30 30 20 20\ncyan 4900 35 35 20 20\ncyan 5750 40 40 20 20\ncyan 6600 45 45 20 20\ncyan 7450 50 50 20 20\ncyan 8300 55 55 20 20\ncyan 9150 60 60 20 20\ncyan 10000 65 65 20 20\ncyan 10850 70 70 20 20\ncyan 11700 75 75 20 20\nshakebg 14250\norange 14250 20 20 20 20\norange 14650 40 20 20 20\norange 15050 60 20 20 20\nyellow 15850 60 40 20 20\nyellow 16250 40 40 20 20\nyellow 16650 20 40 20 20\ncyan 17450 20 60 20 20\ncyan 17850 40 60 20 20\ncyan 18250 60 60 20 20\nlime 19050 60 40 20 20\nlime 19450 40 40 20 20\nlime 19850 20 40 20 20\nshakebg 21450\nyellow 21450 20 40 20 20\nyellow 21850 40 40 20 20\nyellow 22250 60 40 20 20\norange 23050 60 20 20 20\norange 23450 40 20 20 20\norange 23850 20 20 20 20\ncyan 24650 20 40 20 20\ncyan 25050 40 40 20 20\ncyan 25450 60 40 20 20\nlime 26250 60 60 20 20\nlime 26650 40 60 20 20\nlime 27050 20 60 20 20\nblurbg 27000 9\nblurbg 27100 8\nblurbg 27200 7\nblurbg 27300 6\nblurbg 27400 5\nblurbg 27500 4\nblurbg 27600 3\nblurbg 27700 2\nblurbg 27800 1\nblurbg 27900 0\nred 28550 40 40 20 20\ncyan 29350 60 60 20 20\norange 29750 80 80 15 15\nred 30550 40 40 20 20\nlime 31350 20 20 20 20\nyellow 31750 5 5 15 15\nred 32550 40 40 20 20\norange 33350 60 20 20 20\nlime 33750 80 5 15 15\nred 34550 40 40 20 20\nyellow 35350 20 60 20 20\ncyan 35750 5 80 15 15\nred 36450 40 40 20 20\ncyan 37250 60 60 20 20\norange 37650 80 80 15 15\nred 38450 40 40 20 20\nlime 38850 20 20 20 20\nyellow 39250 5 5 15 15\nred 40050 40 40 20 20\norange 40450 60 20 20 20\nlime 40850 80 5 15 15\nred 41650 40 40 20 20\nyellow 42050 20 60 20 20\ncyan 42450 5 80 15 15\nshakebg 43250","background":"backgrounds/deadlocked.jpg","music":"songs/deadlocked.mp3","info":{"name":"Deadlocked","artist":"F-777","creator":"Milk_Cool","description":"tururu tururu tururu\n       TURURU\ntururu tururu too\n       PARARA"}}, //deadlocked
 				{"level":"cyan 0 20 20 20 20\norange 250 20 40 20 20\norange 500 40 40 20 20\ncyan 1000 40 60 20 20\norange 1250 40 80 20 20\norange 1500 60 80 20 20\ncyan 1750 80 60 20 20\nred 2000 80 80 20 20\ncyan 2500 20 20 20 20\norange 2750 20 40 20 20\norange 3000 40 40 20 20\ncyan 3500 20 20 20 20\norange 3750 20 40 20 20\norange 4000 40 40 20 20\ncyan 4500 40 60 20 20\norange 3750 40 80 20 20\norange 5000 60 80 20 20\ncyan 5250 80 60 20 20\nred 5500 80 80 20 20\ncyan 6000 20 20 20 20\norange 6250 20 40 20 20\norange 6500 40 40 20 20\ncyan 10000 20 20 20 20\norange 10250 20 40 20 20\norange 10500 40 40 20 20\ncyan 11000 40 60 20 20\norange 11250 40 80 20 20\norange 11500 60 80 20 20\ncyan 11750 80 60 20 20\nred 12000 80 80 20 20\ncyan 12500 20 20 20 20\norange 12750 20 40 20 20\norange 13000 40 40 20 20\ncyan 13500 20 20 20 20\norange 13750 20 40 20 20\norange 14000 40 40 20 20\ncyan 14250 40 60 20 20\norange 14500 40 80 20 20\norange 14750 60 80 20 20\ncyan 15000 80 60 20 20\nred 15250 80 80 20 20\ncyan 15750 20 20 20 20\norange 16000 20 40 20 20\norange 16250 40 40 20 20\ncyan 16750 20 20 20 20\norange 17000 20 40 20 20\norange 17250 40 40 20 20\ncyan 17750 40 60 20 20\norange 18000 40 80 20 20\norange 18250 60 80 20 20\ncyan 18750 80 60 20 20\nred 19000 80 80 20 20\ncyan 19500 20 20 20 20\norange 19750 20 40 20 20\norange 20000 40 40 20 20\ncyan 20000 20 20 20 20\norange 20250 20 40 20 20\norange 20500 40 40 20 20\ncyan 21000 40 60 20 20\norange 21250 40 80 20 20\norange 21500 60 80 20 20\ncyan 21750 80 60 20 20\nred 22000 80 80 20 20\ncyan 22500 20 20 20 20\norange 22750 20 40 20 20\norange 23000 40 40 20 20\ncyan 23500 20 20 20 20\norange 23750 20 40 20 20\norange 24000 40 40 20 20\ncyan 24500 40 60 20 20\norange 23750 40 80 20 20\norange 25000 60 80 20 20\ncyan 25250 80 60 20 20\nred 25500 80 80 20 20\ncyan 26000 20 20 20 20\norange 26250 20 40 20 20\norange 26500 40 40 20 20\ncyan 30000 20 20 20 20\norange 30250 20 40 20 20\norange 30500 40 40 20 20\ncyan 31000 40 60 20 20\norange 31250 40 80 20 20\norange 31500 60 80 20 20\ncyan 31750 80 60 20 20\nred 32000 80 80 20 20\ncyan 32500 20 20 20 20\norange 32750 20 40 20 20\norange 33000 40 40 20 20\ncyan 33500 20 20 20 20\norange 33750 20 40 20 20\norange 34000 40 40 20 20\ncyan 34250 40 60 20 20\norange 34500 40 80 20 20\norange 34750 60 80 20 20\ncyan 35000 80 60 20 20\nred 35250 80 80 20 20\ncyan 35750 20 20 20 20\norange 36000 20 40 20 20\norange 36250 40 40 20 20\ncyan 36750 20 20 20 20\norange 37000 20 40 20 20\norange 37250 40 40 20 20\ncyan 37750 40 60 20 20\norange 38000 40 80 20 20\norange 38250 60 80 20 20\ncyan 38750 80 60 20 20\nred 39000 80 80 20 20\ncyan 39500 20 20 20 20\norange 39750 20 40 20 20\norange 40000 40 40 20 20\nr 44000 r r r r","background":"backgrounds/never.jpg","music":"songs/never.mp3","info":{"name":"Never Letting Go","artist":"Exyl","creator":"Milk_Cool","description":"Catchy music, isn't it?)"}}, //never
 				{"level":"r 380 r r r r\nr 760 r r r r\nr 1140 r r r r\nr 1520 r r r r\nr 1900 r r r r\nr 2280 r r r r\nr 2660 r r r r\nr 3040 r r r r\nr 3420 r r r r\nr 3800 r r r r\nr 4180 r r r r\nr 4560 r r r r\nr 4940 r r r r\nr 5320 r r r r\nr 5700 r r r r\nr 6080 r r r r\nr 6460 r r r r\nr 6840 r r r r\nr 7220 r r r r\nr 7600 r r r r\nr 7980 r r r r\nr 8360 r r r r\nr 8740 r r r r\nr 9120 r r r r\nr 9500 r r r r\nr 9880 r r r r\nr 10260 r r r r\nr 10640 r r r r\nr 11020 r r r r\nr 11400 r r r r\nr 11780 r r r r\nr 12160 r r r r\nr 12540 r r r r\nr 12920 r r r r\nr 13300 r r r r\nr 13680 r r r r\nr 14060 r r r r\nr 14440 r r r r\nr 14820 r r r r\nr 15200 r r r r\nr 15580 r r r r\nr 15960 r r r r\nr 16340 r r r r\nr 16720 r r r r\nr 17100 r r r r\nr 17480 r r r r\nr 17860 r r r r\nr 18240 r r r r\nr 18620 r r r r\nr 19000 r r r r\nr 19380 r r r r\nr 19760 r r r r\nr 20140 r r r r\nr 20520 r r r r\nr 20900 r r r r\nr 21280 r r r r\nr 21660 r r r r\nr 22040 r r r r\nr 22420 r r r r\nr 22800 r r r r\nr 23180 r r r r\nr 23560 r r r r\nr 23940 r r r r\nr 24320 r r r r\nr 24700 r r r r\nr 25080 r r r r\nr 25460 r r r r\nr 25840 r r r r\nr 26220 r r r r\nr 26600 r r r r\nr 26980 r r r r\nr 27360 r r r r\nr 27740 r r r r\nr 28120 r r r r\nr 28500 r r r r\nr 28880 r r r r\nr 29260 r r r r\nr 29640 r r r r\nr 30020 r r r r\nr 30400 r r r r\nr 30780 r r r r\nr 31160 r r r r\nr 31540 r r r r\nr 31920 r r r r\nr 32300 r r r r\nr 32680 r r r r\nr 33060 r r r r\nr 33440 r r r r\nr 33820 r r r r\nr 34200 r r r r\nr 34580 r r r r\nr 34960 r r r r\nr 35340 r r r r\nr 35720 r r r r\nr 36100 r r r r\nr 36480 r r r r\nr 36860 r r r r\nr 37240 r r r r\nr 37620 r r r r\nr 38000 r r r r\nr 38380 r r r r\nr 38760 r r r r\nr 39140 r r r r\nr 39520 r r r r\nr 39900 r r r r\nr 40280 r r r r\nr 40660 r r r r\nr 41040 r r r r\nr 41420 r r r r\nr 41800 r r r r\nr 42180 r r r r\nr 42560 r r r r\nr 42940 r r r r\nr 43320 r r r r\nr 43700 r r r r\nr 44080 r r r r\nr 44460 r r r r\nr 44840 r r r r\nr 45220 r r r r\nr 45600 r r r r\nr 45980 r r r r\nr 46360 r r r r\nr 46740 r r r r\nr 47120 r r r r\nr 47500 r r r r\nr 47880 r r r r\nr 48260 r r r r\nr 48640 r r r r\nr 49020 r r r r\nr 49400 r r r r\nr 49780 r r r r\nr 50160 r r r r\nr 50540 r r r r\nr 50920 r r r r\nr 51300 r r r r\nr 51680 r r r r\nr 52060 r r r r\nr 52440 r r r r\nr 52820 r r r r\nr 53200 r r r r\nr 53580 r r r r\nr 53960 r r r r\nr 54340 r r r r\nr 54720 r r r r\nr 55100 r r r r\nr 55480 r r r r\nr 55860 r r r r\nr 56240 r r r r\nr 56620 r r r r\nr 57000 r r r r\nr 57380 r r r r\nr 57760 r r r r\nr 58140 r r r r\nr 58520 r r r r\nr 58900 r r r r\nr 59280 r r r r\nr 59660 r r r r\nr 60040 r r r r\nr 60420 r r r r\nr 60800 r r r r\nr 61180 r r r r\nr 61560 r r r r\nr 61940 r r r r\nr 62320 r r r r\nr 62700 r r r r\nr 63080 r r r r\nr 63460 r r r r\nr 63840 r r r r\nr 64220 r r r r\nr 64600 r r r r\nr 64980 r r r r\nr 65360 r r r r\nr 65740 r r r r\nr 66120 r r r r\nr 66500 r r r r\nr 66880 r r r r\nr 67260 r r r r\nr 67640 r r r r\nr 68020 r r r r\nr 68400 r r r r\nr 68780 r r r r\nr 69160 r r r r\nr 69540 r r r r\nr 69920 r r r r\nr 70300 r r r r\nr 70680 r r r r\nr 71060 r r r r\nr 71440 r r r r\nr 71820 r r r r\nr 72200 r r r r\nr 72580 r r r r\nr 72960 r r r r\nr 73340 r r r r\nr 73720 r r r r\nr 74100 r r r r\nr 74480 r r r r\nr 74860 r r r r\nr 75240 r r r r\nr 75620 r r r r\nr 76000 r r r r\nr 76380 r r r r\nr 76760 r r r r\nr 77140 r r r r\nr 77520 r r r r\nr 77900 r r r r\nr 78280 r r r r\nr 78660 r r r r\nr 79040 r r r r\nr 79420 r r r r\nr 79800 r r r r\nr 80180 r r r r\nr 80560 r r r r\nr 80940 r r r r\nr 81320 r r r r\nr 81700 r r r r\nr 82080 r r r r\nr 82460 r r r r\nr 82840 r r r r\nr 83220 r r r r\nr 83600 r r r r\nr 83980 r r r r\nr 84360 r r r r\nr 84740 r r r r\nr 85120 r r r r\nr 85500 r r r r\nr 85880 r r r r\nr 86260 r r r r\nr 86640 r r r r\nr 87020 r r r r\nr 87400 r r r r\nr 87780 r r r r\nr 88160 r r r r\nr 88540 r r r r\nr 88920 r r r r\nr 89300 r r r r\nr 89680 r r r r\nr 90060 r r r r\nr 90440 r r r r\nr 90820 r r r r\nr 91200 r r r r\nr 91580 r r r r\nr 91960 r r r r\nr 92340 r r r r\nr 92720 r r r r\nr 93100 r r r r\nr 93480 r r r r\nr 93860 r r r r\nr 94240 r r r r\nr 94620 r r r r\nr 95000 r r r r\nr 95380 r r r r\nr 95760 r r r r\nr 96140 r r r r\nr 96520 r r r r\nr 96900 r r r r\nr 97280 r r r r\nr 97660 r r r r\nr 98040 r r r r\nr 98420 r r r r\nr 98800 r r r r\nr 99180 r r r r\nr 99560 r r r r\nr 99940 r r r r\nr 100320 r r r r\nr 100700 r r r r\nr 101080 r r r r\nr 101460 r r r r\nr 101840 r r r r\nr 102220 r r r r\nr 102600 r r r r\nr 102980 r r r r\nr 103360 r r r r\nr 103740 r r r r\nr 104120 r r r r\nr 104500 r r r r\nr 104880 r r r r\nr 105260 r r r r\nr 105640 r r r r\nr 106020 r r r r\nr 106400 r r r r\nr 106780 r r r r\nr 107160 r r r r\nr 107540 r r r r\nr 107920 r r r r\nr 108300 r r r r\nr 108680 r r r r\nr 109060 r r r r\nr 109440 r r r r\nr 109820 r r r r\nr 110200 r r r r\nr 110580 r r r r\nr 110960 r r r r\nr 111340 r r r r\nr 111720 r r r r\nr 112100 r r r r\nr 112480 r r r r\nr 112860 r r r r\nr 113240 r r r r\nr 113620 r r r r\nr 114000 r r r r\nr 114380 r r r r\nr 114760 r r r r\nr 115140 r r r r\nr 115520 r r r r\nr 115900 r r r r\nr 116280 r r r r\nr 116660 r r r r\nr 117040 r r r r\nr 117420 r r r r\nr 117800 r r r r\nr 118180 r r r r\nr 118560 r r r r\nr 118940 r r r r\nr 119320 r r r r\nr 119700 r r r r\nr 120080 r r r r\nr 120460 r r r r\nr 120840 r r r r\nr 121220 r r r r\nr 121600 r r r r\nr 121980 r r r r\nr 122360 r r r r\nr 122740 r r r r\nr 123120 r r r r\nr 123500 r r r r\nr 123880 r r r r\nr 124260 r r r r\nr 124640 r r r r\nr 125020 r r r r\nr 125400 r r r r\nr 125780 r r r r\nr 126160 r r r r\nr 126540 r r r r\nr 126920 r r r r\nr 127300 r r r r\nr 127680 r r r r\nr 128060 r r r r\nr 128440 r r r r\nr 128820 r r r r\nr 129200 r r r r\nr 129580 r r r r\nr 129960 r r r r\nr 130340 r r r r\nr 130720 r r r r\nr 131100 r r r r\nr 131480 r r r r\nr 131860 r r r r\nr 132240 r r r r\nr 132620 r r r r\nr 133000 r r r r\nr 133380 r r r r\nr 133760 r r r r\nr 134140 r r r r\nr 134520 r r r r\nr 134900 r r r r\nr 135280 r r r r\nr 135660 r r r r\nr 136040 r r r r\nr 136420 r r r r\nr 136800 r r r r\nr 137180 r r r r\nr 137560 r r r r\nr 137940 r r r r\nr 138320 r r r r\nr 138700 r r r r\nr 139080 r r r r\nr 139460 r r r r\nr 139840 r r r r\nr 140220 r r r r\nr 140600 r r r r\nr 140980 r r r r\nr 141360 r r r r\nr 141740 r r r r\nr 142120 r r r r\nr 142500 r r r r\nr 142880 r r r r\nr 143260 r r r r\nr 143640 r r r r\nr 144020 r r r r\nr 144400 r r r r\nr 144780 r r r r\nr 145160 r r r r\nr 145540 r r r r\nr 145920 r r r r\nr 146300 r r r r\nr 146680 r r r r\nr 147060 r r r r\nr 147440 r r r r\nr 147820 r r r r\nr 148200 r r r r\nr 148580 r r r r\nr 148960 r r r r\nr 149340 r r r r\nr 149720 r r r r\nr 150100 r r r r\nr 150480 r r r r\nr 150860 r r r r\nr 151240 r r r r\nr 151620 r r r r\nr 152000 r r r r\nr 152380 r r r r\nr 152760 r r r r\nr 153140 r r r r\nr 153520 r r r r\nr 153900 r r r r\nr 154280 r r r r\nr 154660 r r r r\nr 155040 r r r r\nr 155420 r r r r\nr 155800 r r r r\nr 156180 r r r r\nr 156560 r r r r\nr 156940 r r r r\nr 157320 r r r r\nr 157700 r r r r\nr 158080 r r r r\nr 158460 r r r r\nr 158840 r r r r\nr 159220 r r r r\nr 159600 r r r r\nr 159980 r r r r\nr 160360 r r r r\nr 160740 r r r r\nr 161120 r r r r\nr 161500 r r r r\nr 161880 r r r r\nr 162260 r r r r\nr 162640 r r r r\nr 163020 r r r r\nr 163400 r r r r\nr 163780 r r r r\nr 164160 r r r r\nr 164540 r r r r\nr 164920 r r r r\nr 165300 r r r r\nr 165680 r r r r\nr 166060 r r r r\nr 166440 r r r r\nr 166820 r r r r\nr 167200 r r r r\nr 167580 r r r r\nr 167960 r r r r\nr 168340 r r r r\nr 168720 r r r r\nr 169100 r r r r\nr 169480 r r r r\nr 169860 r r r r\nr 170240 r r r r\nr 170620 r r r r\nr 171000 r r r r\nr 171380 r r r r\nr 171760 r r r r\nr 172140 r r r r\nr 172520 r r r r\nr 172900 r r r r\nr 173280 r r r r\nr 173660 r r r r\nr 174040 r r r r\nr 174420 r r r r\nr 174800 r r r r\nr 175180 r r r r\nr 175560 r r r r\nr 175940 r r r r\nr 176320 r r r r\nr 176700 r r r r\nr 177080 r r r r\nr 177460 r r r r\nr 177840 r r r r\nr 178220 r r r r\nr 178600 r r r r\nr 178980 r r r r\nr 179360 r r r r\nr 179740 r r r r\nr 180120 r r r r\nr 180500 r r r r\nr 180880 r r r r\nr 181260 r r r r\nr 181640 r r r r\nr 182020 r r r r\nr 182400 r r r r\nr 182780 r r r r\nr 183160 r r r r\nr 183540 r r r r\nr 183920 r r r r\nr 184300 r r r r\nr 184680 r r r r\nr 185060 r r r r\nr 185440 r r r r\nr 185820 r r r r\nr 186200 r r r r\nr 186580 r r r r\nr 186960 r r r r\nr 187340 r r r r\nr 187720 r r r r\nr 188100 r r r r\nr 188480 r r r r\nr 188860 r r r r\nr 189240 r r r r\nr 189620 r r r r\nr 190000 r r r r","background":"backgrounds/90.jpg","music":"songs/90.mp3","info":{"name":"Running Into 90's","artist":"Max Coveri","creator":"Milk_Cool","description":"ah yes so cool and so hard try to S+ you'll get pogged cuz I will notice this probably I am not sure but anyway if you have nothing to do try to beat this well at least beat if you play osu this will be easy so play osu first at least 500 levels ok you'll not win you'll never win you are a stupid loser"}}]; //90
 			};
@@ -138,10 +141,12 @@
 			logoanim = 999,
 			op = true,
 			timeouts = [],
+			parallax = true,
 			losed = 0,
 			lti = 0,
 			lci = 0,
 			lpi = 0,
+			dof = 0,
 			maxscore = 0,
 			getSES = false,
 			SESPoints = 0,
@@ -282,12 +287,12 @@
 				$("b.score > i").html("Score: " + (score + SESPoints) + "<br>Missed: " + losed);
 				if(lfcmode == 0) $("b.percentage > i").html("All points: " + glsc);
 				else $("b.percentage > i").html(cpct + "%");
-				if(losed >= 7 && !dnl){
+				if(losed >= 7 && !dnl && dof == 0){
 					dnl = true;
 					lvstate = -1;
 					if(DEBUG.alertOnLose) alert("u lose");
-					$("body > center").css("display", "inline");
-					$("#rank").css("display", "none");
+					$("body > center#youlose").css("display", "inline");
+					//$("#rank").css("display", "none");
 					getSES = false;
 					score = 0;
 					clrAll();
@@ -309,6 +314,7 @@
 						lfcmode = 0;
 						logobounce();
 					}, 3000);
+					dof = 1;
 				}
 				//localStorage
 				localStorage.setItem("lvs", JSON.stringify(official));
@@ -349,6 +355,7 @@
 				}
 			};
 			function finish(){
+				if(dof == 1) return;
 				dnl = true;
 				var rank;
 				cpct = 100;
@@ -393,6 +400,7 @@
 					lfcmode = 0;
 					logobounce();
 				}, 3000);
+				dof = 1;
 			}
 			function sepString(str){
 				var arr = str.split("\n");
@@ -414,6 +422,12 @@
 						maxTime = Math.max(maxTime, a[i][1]);
 					}
 					else if(a[i][0] == "delay") delay += Number(a[i][1]);
+					else if(a[i][0] == "shakebg") timeouts.push(setTimeout(function(c){shake("img.bg", (c[2] ? c[2] : 10), (c[3] ? c[3] : 50), (c[4] ? c[4] : 10), true);}, a[i][1], a[i]));
+					else if(a[i][0] == "blurbg") timeouts.push(setTimeout(function(c){document.documentElement.style.setProperty("--blur", c[2] + "px")}, a[i][1], a[i]));
+					else if(a[i][0] == "flashbg") timeouts.push(setTimeout(function(){
+						setTimeout(function(){$("img.bg").fadeOut(0).fadeIn(300);}, 0);
+						setTimeout(function(){$("body").css("backgroundColor", "white"); $("body").animate({"backgroundColor": "black"}, 400);}, 0);
+					}, a[i][1]));
 					else console.warn("Unknown object type (\"" + a[i][0] + "\"), ignoring");
 				}
 				return maxTime;
@@ -462,6 +476,7 @@
 				}), delay + time));
 			};
 			function play(obj){
+				dof = 0;
 				delay = 0;
 				cpct = 0;
 				maxscore = 0;
@@ -491,7 +506,8 @@
 								cpct++;
 							}, (maxTTT / 100) * i))
 						}
-						$("img.bg").css("filter", "blur(10px)");
+						$("img.bg").css("filter", "blur(var(--blur))");
+						document.documentElement.style.setProperty("--blur", "10px");
 						$("b").css("display", "block");
 						document.getElementsByTagName('audio')[0].oncanplay = function(){};
 						document.getElementsByClassName("bg")[0].onload = function(){};
@@ -507,7 +523,9 @@
 				};
 			}
 			document.onmousemove = function(event){
-				$("img.bg").css({"top": event.pageY / 100 - $(document).height() / 200 + "px", "left": event.pageX / 100 - $(document).width() / 200 + "px"});
+				if(parallax) $("img.bg").css({"top": event.pageY / 100 - $(document).height() / 200 + "px", "left": event.pageX / 100 - $(document).width() / 200 + "px"});
+				window.mouseX = event.pageX;
+				window.mouseY = event.pageY;
 			};
 			//var official_ex = JSON.stringify();
 			var official = JSON.parse(localStorage.getItem("lvs"));
@@ -536,7 +554,7 @@
 				obj = base_object(obj);
 				if(!lvl_contains(obj)){
 					official.push(obj);
-					$(".play").click();
+					if(lfcmode == 0) $(".play").click();
 				}
 				else if(notify){
 					shake($(".open"));
@@ -551,7 +569,8 @@
 				}
 				timeouts = [];
 			};
-			function shake(elem, strength = 10, repeatTimes = 50, interval = 10){
+			function shake(elem, strength = 10, repeatTimes = 50, interval = 10, disprlx = false){
+				if(disprlx) parallax = false;
 				var x = $(elem).position().left;
 				var y = $(elem).position().top;
 				var randomShakeNumber = () => Math.floor(Math.random() * strength) - strength / 2;
@@ -560,12 +579,46 @@
 						$(elem).css({"left": x + randomShakeNumber(), "top": y + randomShakeNumber()});
 					}, i * interval);
 				setTimeout(function(){
-					$(elem).css({"left": x, "top": y});
+					if(disprlx){
+						$("img.bg").css({"top": window.mouseY / 100 - $(document).height() / 200 + "px", "left": window.mouseX / 100 - $(document).width() / 200 + "px"});
+						parallax = true;
+					}
+					else $(elem).css({"left": x, "top": y});
 				}, interval * repeatTimes);
 			}
 			$("body").keydown(function(e){
 				if(e.which == 27){
-					if($(".levelinfo").css("display") != "none") $('div.levelinfo').animate({'opacity': '0'}, 500, function(){$('div.levelinfo').css('display', 'none');});
+					if(lfcmode == 1 && dof == 0){
+						dnl = true;
+						lvstate = -1;
+						if(DEBUG.alertOnLose) alert("u give up");
+						$("center#gaveup").css("display", "inline");
+						$("center#gaveup h1").text(rndch(["Gave up...", "Weak!", "Are you gonna leave it..?", "You serious?"]));
+						$("#rank").css("display", "none");
+						getSES = false;
+						score = 0;
+						clrAll();
+						for(var i = 0; i < 200; i++){
+							setTimeout(function(){
+								document.getElementsByTagName('audio')[0].playbackRate -= 0.00375;
+							}, i * 10);
+						}
+						setTimeout(function(){
+							document.getElementsByTagName('audio')[0].playbackRate = 1;
+							document.getElementsByTagName('audio')[0].src = "menu-theme.wav";
+							document.getElementsByTagName('audio')[0].play();
+							$("img.bg").attr("src", "bg.gif");
+							$("img.bg").css("filter", "blur(10px) brightness(0.6) hue-rotate(270deg)");
+							$("b:not(.percentage)").css("display", "none");
+							$("div.menu").css("display", "block");
+							$("div.menu button b").css("display", "inline");
+							$("body > center").css("display", "none");
+							lfcmode = 0;
+							logobounce();
+						}, 3000);
+						dof = 1;
+					}
+					else if($(".levelinfo").css("display") != "none") $('div.levelinfo').animate({'opacity': '0'}, 500, function(){$('div.levelinfo').css('display', 'none');});
 					else $('div.levelselect, div.eraseconfirm, div.credits').animate({'opacity': '0'}, 500, function(){$('div.levelselect, div.eraseconfirm, div.credits').css('display', 'none'); op = true;});
 				}
 			});

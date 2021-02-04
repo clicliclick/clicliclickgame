@@ -9,6 +9,7 @@
 :root {
 	--cur: crosshair;
 	--logos: .9;
+	--blur: 20px;
 }
 console {
 	font-family: monospace;
