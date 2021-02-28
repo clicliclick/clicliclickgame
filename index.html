@@ -20,10 +20,10 @@
 		<center style="position: fixed; top: 200px; left: 0; width: 100vw; height: auto; font-family: QuickSand; z-index: 200; color: white; font-size: 200%; display: none" id="rank"><h1></h1></center>
 		<audio src="menu-theme.wav" loop></audio>
 		<div class="black"></div>
-		<video src="intro.mp4" style="opacity: 0" onended="$('.black').remove(); $('video').remove(); document.getElementsByTagName('audio')[0].play();createText(0, 50, 10, 'V. 0.1.4 (BETA)');logobounce()"></video>
+		<video src="intro.mp4" style="opacity: 0" onended="$('.black').remove(); $('video').remove(); document.getElementsByTagName('audio')[0].play();logobounce(); checkpoints = true;"></video>
 		<div id="warn" style="opacity: 1"><center>
 			<br><br>
-			<i style="font-family: QuickSand">This game may contain some flashy content!</i><br>
+			<i style="font-family: QuickSand">This game contains some flashy content!</i><br>
 			<button onclick="document.getElementsByTagName('video')[0].play(); $('video').css('opacity', '1'); $('#warn').remove()">OK, just let me play.</button> <br>
 			<button onclick="self.close()">No! Don't!</button>
 		</center></div>
@@ -87,6 +87,7 @@
 			<p style="color: white">Shink sound: <a onclick="navigator.clipboard.writeText('https://www.youtube.com/watch?v=U34MegCHlig')">https://www.youtube.com/watch?v=U34MegCHlig</a></p>
 			<p style="color: white">Tada sound: <a onclick="navigator.clipboard.writeText('http://www.theallsounds.com/2020/06/tada-sound-effects-all-sounds-download.html')">http://www.theallsounds.com/2020/06/tada-sound-effects-all-sounds-download.html</a></p>
 			<p style="color: white">Cursors:<br>
+	<a onclick="navigator.clipboard.writeText('http://www.rw-designer.com/cursor-detail/108557')">http://www.rw-designer.com/cursor-detail/108557</a><br>
 	<a onclick="navigator.clipboard.writeText('http://www.rw-designer.com/cursor-detail/76840')">http://www.rw-designer.com/cursor-detail/76840</a><br>
 	<a onclick="navigator.clipboard.writeText('http://www.rw-designer.com/cursor-detail/144155')">http://www.rw-designer.com/cursor-detail/144155</a><br>
 	<a onclick="navigator.clipboard.writeText('http://www.rw-designer.com/cursor-detail/39818')">http://www.rw-designer.com/cursor-detail/39818</a></p>
@@ -142,6 +143,7 @@
 			op = true,
 			timeouts = [],
 			parallax = true,
+			checkpoints = false;
 			losed = 0,
 			lti = 0,
 			lci = 0,
@@ -273,7 +275,19 @@
 				});
 			}, 600);
 			function cursel(num){
-				var cursors = ["crosshair", "url('cursors/lime.cur'), auto", "url('cursors/yellow.cur'), auto", "url('cursors/shadow.cur'), auto"];
+				if(checkpoints){
+					if(num == 1 && glsc < 500){
+						alertify.error("Not enough points! Score at least 500.");
+						return;
+					}else if(num == 2 && glsc < 10000){
+						alertify.error("Not enough points! Score at least 10000.");
+						return;
+					}else if(num == 3 && glsc < 1000000){
+						alertify.error("Not enough points! Score at least 1000000.");
+						return;
+					}
+				}
+				var cursors = ["url('cursors/pink.cur'), auto", "url('cursors/lime.cur'), auto", "url('cursors/yellow.cur'), auto", "url('cursors/shadow.cur'), auto"];
 				document.documentElement.style.setProperty("--cur", cursors[num]);
 				//document.getElementById("lastcursel").style.cursor = cursors[num];
 				for(var i = 0; i < 4; i++){
